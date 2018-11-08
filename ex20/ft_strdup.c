@@ -11,19 +11,37 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-char *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-	char *str;
-	char *p;
-	int len = 0;
+	int taille;
+	char *cpy;
+	int i;
 
-	while (src[len])
-		len++;
-	str = malloc(len + 1);
-	p = str;
-	while (*src)
-		*p++ = *src++;
-	*p = '\0';
-	return str;
+	i = 0;
+	taille = 0;
+	while (src[taille])
+	{
+		taille++;
+	}
+	cpy = (char*)malloc(sizeof(*cpy) * taille + 1);
+	while (src[i])
+	{
+		cpy[i] = src[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
+}
+
+int main()
+{
+	printf("le mien : %s \n", ft_strdup("mikailfgdg"));
+//	printf("le vrai : %s \n", strdup("mikailfgdg"));
+	int g = 1;
+	while (g == 1)
+	;
+	return (0);
 }
