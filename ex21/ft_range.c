@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkastaci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:57:26 by mkastaci          #+#    #+#             */
-/*   Updated: 2018/11/09 11:37:00 by mkastaci         ###   ########.fr       */
+/*   Created: 2018/11/09 11:37:20 by mkastaci          #+#    #+#             */
+/*   Updated: 2018/11/09 11:59:33 by mkastaci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strdup(char *src)
+int		*ft_range(int min, int max)
 {
-	int		taille;
-	char	*cpy;
-	int		i;
+	int i;
+	int *tab;
 
 	i = 0;
-	taille = 0;
-	while (src[taille])
+	if (min >= max)
+		return (NULL);
+	tab = (int*)malloc(sizeof(*tab) * (max - min));
+	while (min < max)
 	{
-		taille++;
-	}
-	cpy = (char*)malloc(sizeof(*cpy) * taille + 1);
-	while (src[i])
-	{
-		cpy[i] = src[i];
+		tab[i] = min;
+		min++;
 		i++;
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	return (tab);
 }
