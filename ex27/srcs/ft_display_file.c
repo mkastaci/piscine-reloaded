@@ -1,12 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkastaci <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/12 12:59:56 by mkastaci          #+#    #+#             */
+/*   Updated: 2018/11/12 13:01:24 by mkastaci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <fcntl.h>
 
-
-
 void	display(char *nomfichier)
 {
-	int fd;
-	char character;
+	int		fd;
+	char	character;
 
 	fd = open(nomfichier, O_RDONLY);
 	if (fd < 0)
@@ -16,7 +26,7 @@ void	display(char *nomfichier)
 	close(fd);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	if (argc == 1)
 		write(2, "File name missing.\n", 19);
